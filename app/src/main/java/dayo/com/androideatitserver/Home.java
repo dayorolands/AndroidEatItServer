@@ -79,7 +79,6 @@ public class Home extends AppCompatActivity {
 
     Category newCategory;
     Uri saveUri;
-    public final int PICK_IMAGE_REQUEST = 71;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -228,7 +227,7 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+        if(requestCode == Common.PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null)
         {
             saveUri = data.getData();
@@ -240,7 +239,7 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"SELECT PICTURE"), PICK_IMAGE_REQUEST);
+        startActivityForResult(Intent.createChooser(intent,"SELECT PICTURE"), Common.PICK_IMAGE_REQUEST);
     }
 
     private void loadMenu() {
